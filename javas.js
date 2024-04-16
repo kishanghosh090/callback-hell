@@ -15,4 +15,36 @@ getData(1, () => {
     })
 })
 
+//promises
+
+function asyncFun() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("some data 1")
+            resolve("sucess")
+        },2000)
+    });
+}
+
+function asyncFun2() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("some data 1")
+            resolve("sucess")
+        },4000)
+    });
+}
+
+console.log("fecthing data1")
+let p1 = asyncFun();
+p1.then((res) =>{
+    console.log(res);
+    console.log("fecthing data2")
+    let p2 = asyncFun2();
+   p2.then((res) =>{
+    console.log(res);
+});
+
+});
+
 
